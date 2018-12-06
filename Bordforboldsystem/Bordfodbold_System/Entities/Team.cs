@@ -10,7 +10,7 @@ namespace Bordfodbold_System.Entities
         // Id is auto-incremented.
         public int id { get; }
 
-        public Player player1 { get; set; }
-        public Player player2 { get; set; }
+        public string player1 { get; set; }
+        public string player2 { get; set; }
     }
 }

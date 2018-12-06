@@ -13,5 +13,7 @@ namespace Bordfodbold_System.Abstract
         IEnumerable<Game> Games { get; }
 
         // Metoder tilknyttet 'Games'
+
+        // test
     }
 }

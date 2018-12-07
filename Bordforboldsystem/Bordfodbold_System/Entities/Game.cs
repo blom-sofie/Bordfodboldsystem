@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace Bordfodbold_System.Entities
 {
@@ -10,9 +7,9 @@ namespace Bordfodbold_System.Entities
         // Id is auto-incremented.
         public int id { get; }
 
-        public int /*string i DB*/ team1 { get; set; }
-        public int /*string i DB*/ team2 { get; set; }
-        public int winner { get; set; }
+        public int team1_id { get; set; }
+        public int team2_id { get; set; }
+        public int winner_team_id { get; set; }
         public int team1goals { get; set; }
         public int team2goals { get; set; }
 

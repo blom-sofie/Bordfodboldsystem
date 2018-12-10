@@ -34,5 +34,11 @@ namespace Bordfodbold_System.Controllers
         {
             return View();
         }
+
+        // Ændring af dette? (Blot en idé)
+        public ActionResult NewUser()
+        {
+            return View();
+        }
     }
 }

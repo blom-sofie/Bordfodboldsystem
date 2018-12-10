@@ -1,6 +1,22 @@
 ﻿
 @{
     ViewBag.Title = "About";
+    if (Session["userID"] == null)
+    {
+        Response.Redirect("~/Login/Login");
+    }
 }
 
-<p> New game fra NewGame.cshtml </p>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>NewUser</title>
+</head>
+<body>
+    <div>
+        <h1> NEW GAME PAGE, WOHOO!!!! </h1>
+    </div>
+</body>
+</html>

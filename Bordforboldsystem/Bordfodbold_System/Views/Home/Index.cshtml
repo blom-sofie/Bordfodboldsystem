@@ -1,4 +1,6 @@
-﻿@{
+﻿@using Bordfodbold_System.Controllers
+@using Bordfodbold_System.Entities
+@{
     ViewBag.Title = "Home Page";
     if (Session["userID"] == null)
     {
@@ -7,15 +9,37 @@
     }
 }
 
-<!-- 
-    Planen er, at der i fremtiden skal vises en del fra dette view. 
+<!--
+    Planen er, at der i fremtiden skal vises en del fra dette view.
     Tag evt. et hurtigt kig på Mockup.
 -->
 
 <p> Forside fra index.cshtml </p>
 <h2>
-    @if(Session["userID"] != null){
+    @if (Session["userID"] != null)
+    {
         @Session["userName"].ToString()
     }
 </h2>
+
+@if (Session["userID"] != null)
+{
+    // userID must first be set!
+    // if the userID is equal to 1, then the user is Admin!
+    if (int.Parse(Session["userID"].ToString()) == 1)
+    {
+        // Get the "New User" partial view!
+        //<partial name="~/Views/Home/NewUser.cshtml" />
+        <a href="@Url.Action("NewUser","Home")">  New User </a>
+    }
+    else
+    {
+        // The user is NOT admin, get the New Game view!
+        //<partial name="~/Views/Home/NewGame.cshtml" />
+        <a href="@Url.Action("NewGame","Home")">  New Game </a>
+    }
+
+}
+
+
 <a href="@Url.Action("LogOut","Login")">  Log out! </a>

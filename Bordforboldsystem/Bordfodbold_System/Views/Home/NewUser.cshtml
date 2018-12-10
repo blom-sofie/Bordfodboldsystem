@@ -1,0 +1,29 @@
+﻿
+@{
+    Layout = null;
+    // If user isn't set, redirect the 'user' back to login page.
+    if (Session["userID"] == null)
+    {
+        Response.Redirect("~/Login/Login");
+    }
+    // If the user IS set but the user ISNT admin, redirect back to index!
+    else if (int.Parse(Session["userID"].ToString()) != 1)
+    {
+        // Can be used to check if player is admin.
+        Response.Redirect("~/Home/Index");
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>NewUser</title>
+</head>
+<body>
+<div>
+    <h1> NEW USER PAGE, YAY!!!! </h1>
+</div>
+</body>
+</html>

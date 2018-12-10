@@ -1,6 +1,10 @@
 ﻿body {
 }
 
+table {
+    font-size: 3vh;
+}
+
 .loginInformation {
     top: 2%;
     right: 1%;

@@ -11,7 +11,7 @@ namespace Bordfodbold_System.Abstract
     // Bindes til EfPlayerRepository vha. Dependency Injection.
     public interface IPlayerRepository
     {
-        IEnumerable<Player> Players { get; }
+        IEnumerable<PlayerEnt> Players { get; }
 
         // Metoder tilknyttet 'Players'
     }

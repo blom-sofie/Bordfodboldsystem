@@ -11,7 +11,7 @@ namespace Bordfodbold_System.Concrete
     {
         // Hent IEnumerable liste af Teams fra EfDbContext
         private readonly EfDbContext _context = new EfDbContext();
-        public IEnumerable<Team> Teams => _context.Teams;
+        public IEnumerable<TeamEnt> Teams => _context.Teams;
 
         // Metoder
     }

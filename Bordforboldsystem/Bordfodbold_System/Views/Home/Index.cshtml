@@ -1,5 +1,10 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+    if (Session["userID"] == null)
+    {
+        // Can be used to check if player is admin.
+        Response.Redirect("~/Login/Login");
+    }
 }
 
 <!-- 
@@ -8,3 +13,9 @@
 -->
 
 <p> Forside fra index.cshtml </p>
+<h2>
+    @if(Session["userID"] != null){
+        @Session["userName"].ToString()
+    }
+</h2>
+<a href="@Url.Action("LogOut","Login")">  Log out! </a>

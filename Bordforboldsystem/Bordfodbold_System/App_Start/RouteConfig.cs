@@ -16,8 +16,17 @@ namespace Bordfodbold_System
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Login", action = "Login", id = UrlParameter.Optional }
+            );
+
+            // Old
+            /*
+            routes.MapRoute(
+                name: "Default",
+                url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+            */
         }
     }
 }

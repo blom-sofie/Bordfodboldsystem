@@ -11,7 +11,7 @@ namespace Bordfodbold_System.Concrete
     {
         // Hent IEnumerable liste af Games fra EfDbContext
         private readonly EfDbContext _context = new EfDbContext();
-        public IEnumerable<Game> Games => _context.Games;
+        public IEnumerable<GameEnt> Games => _context.Games;
 
         // Metoder
     }

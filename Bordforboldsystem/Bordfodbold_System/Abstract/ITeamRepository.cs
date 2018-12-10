@@ -10,7 +10,7 @@ namespace Bordfodbold_System.Abstract
     // Bindes til EfTeamRepository vha. Dependency Injection.
     public interface ITeamRepository
     {
-        IEnumerable<Team> Teams { get; }
+        IEnumerable<TeamEnt> Teams { get; }
 
         // Metoder tilknyttet 'Teams'
     }

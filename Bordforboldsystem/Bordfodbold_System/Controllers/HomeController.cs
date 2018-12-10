@@ -11,10 +11,6 @@ namespace Bordfodbold_System.Controllers
     // Auto-genereret HomeController til view af Index-siden.
     public class HomeController : Controller
     {
-        // Det kommer nogenlunde til at ligne nedenstående, men mon ikke det er muligt, at danne én ny klasse, der kan gøre dette for os?
-        // Få klassen til at implementere de 4 interfaces i constructoren, og så anvende dependency injection på ét nyt interface, som vi så implementerer her?
-        // Anden ting til note: husk, at interfacet skal indeholde den funktionalitet fra klassen, vi har tænkt os at kalde fra controlleren!
-
         private readonly IPlayerRepository _playerRepository;
         private readonly ITeamRepository _teamRepository;
         private readonly IGameRepository _gameRepository;

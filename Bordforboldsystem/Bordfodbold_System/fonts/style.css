@@ -1,0 +1,155 @@
+﻿body {
+}
+
+.loginInformation {
+    top: 2%;
+    right: 1%;
+    position: absolute;
+    z-index: 9999;
+    color: white;
+}
+#navb {
+    width: 100%; height: 8.5%; top: 0px; left: 0px; background-color: #483e3d;
+}
+
+#title {
+    padding: 0.5vh 0vh 0vh 0.5vh;
+    margin: 0px;
+    color: #a7b303;
+    font-size: 6.25vh;
+}
+
+#td_won {
+    background-color: #a7b303;
+    color: #382e2e;
+    font-weight: bold;
+}
+
+#td_lost {
+    background-color: #454443;
+    color: #b7aaaa;
+    font-weight: bold;
+}
+
+.tr_won {
+    background-color: #483e3d;
+}
+
+.tr_lost {
+    background-color: #4f4544;
+}
+
+#playerTable {
+    width: 70%;
+    height: 87.5%;
+    top: 10%;
+    left: 1%;
+    background-color: #483e3d;
+    position: absolute;
+    color: White;
+}
+.createNew {
+    width: 27%;
+    height: 15%;
+    right: 1%;
+    top: 10%;
+    background-color: #a7b303;
+    position: absolute;
+    color: White;
+}
+.createNew button {
+    width: 100%; 
+    height: 100%;
+    font-size: 4vh;
+}
+
+table, th, tr, td, .scope {
+    border: 2px solid #878383;
+    text-align: center;
+}
+
+.scope {
+    background-color: #382e2e;
+}
+
+.searchTabel {
+    width: 27%;
+    height: 70%;
+    top: 27.5%;
+    right: 1%;
+    position: absolute;
+    background-color: #483e3d;
+    color: White;
+}
+#usernameInformation{
+    font-size: 4vh;
+    padding: 0px;
+    margin: 0px;
+    top: 1.5%;
+    right: 1%;
+}
+
+#search_player_information {
+    padding: 0;
+    padding-left: 10px;
+    border: none;
+    background: none;
+    color: white !important;
+    width: 100%;
+    max-width: none;
+    height: 8vh;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-size: 4vh;
+    background-color: #382e2e;
+    border-bottom: 0.5vh solid #878383;
+}
+.searchTabel span {
+    font-size:5vh;
+}
+
+#search_player_information_button {
+    width: 8vh;
+    max-width: none;
+    height: 8vh;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    margin: 0px;
+    padding: 0px;
+    background-color: #382e2e;
+    border: none;
+    border-radius: 0px;
+}
+#search_player_information_button:active {
+    background-color: #4f4544;
+}
+
+#playerInfoTable table{
+    position: absolute;
+    right: 0px;
+    top: 8vh;
+    width: 100%;
+    border: none !important;
+}
+
+#playerInfoTable tr{
+    border: none;
+}
+
+#playerInfoTable td {
+    border: 2px solid #878383;
+    border-right: none;
+    border-left: none;
+}
+
+.player_info {
+    width: 30%;
+}
+
+.player_info_colon {
+    width: 5px;
+    padding: 0px;
+    margin: 0px;
+}

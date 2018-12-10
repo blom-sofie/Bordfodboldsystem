@@ -1,14 +1,12 @@
-﻿
-@{
-    // If user isn't set, redirect the 'user' back to login page.
+﻿@{
+    // If user isn't logged in, redirect the 'user' back to the login page.
     if (Session["userID"] == null)
     {
         Response.Redirect("~/Login/Login");
     }
-    // If the user IS set but the user ISNT admin, redirect back to index!
+    // If the user is logged in, but the user isn't admin, redirect them back to index!
     else if (int.Parse(Session["userID"].ToString()) != 1)
     {
-        // Can be used to check if player is admin.
         Response.Redirect("~/Home/Index");
     }
 }

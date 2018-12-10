@@ -26,19 +26,15 @@ namespace Bordfodbold_System.Controllers
                     userModel.LoginErrorMessage = "Incorrect credentials!";
                     return View("Login", userModel);
                 }
-                else
-                {
-                    Session["userID"] = userDetails.id;
-                    Session["userName"] = userDetails.name;
-
-                    return RedirectToAction("Index", "Home");
-                }
+                Session["userID"] = userDetails.id;
+                Session["userName"] = userDetails.name;
+                return RedirectToAction("Index", "Home");
             }
         }
 
         public ActionResult LogOut()
         {
-            int userId = (int) Session["userID"];
+            //int userId = (int) Session["userID"];
             Session.Abandon();
             return RedirectToAction("Login", "Login");
         }

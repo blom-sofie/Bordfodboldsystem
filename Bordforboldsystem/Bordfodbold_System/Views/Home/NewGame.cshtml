@@ -1,14 +1,13 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "About";
+    // If the user isn't logged in, throw him/her out!
     if (Session["userID"] == null)
     {
         Response.Redirect("~/Login/Login");
     }
-    // If the user IS set but the user ISNT admin, redirect back to index!
+    // If the user is logged in, but the user isn't Admin, redirect them back to index!
     else if (int.Parse(Session["userID"].ToString()) == 1)
     {
-        // Can be used to check if player is admin.
         Response.Redirect("~/Home/Index");
     }
 }

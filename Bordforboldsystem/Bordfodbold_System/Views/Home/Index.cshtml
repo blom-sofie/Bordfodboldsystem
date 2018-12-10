@@ -4,7 +4,7 @@
     ViewBag.Title = "Home Page";
     if (Session["userID"] == null)
     {
-        // If the Session "userID" ISNT set, throw them out!
+        // If the user isn't logged in, throw him/her out!
         Response.Redirect("~/Login/Login");
     }
 }

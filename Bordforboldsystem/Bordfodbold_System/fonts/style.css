@@ -21,6 +21,9 @@ table {
     margin: 0px;
     color: #a7b303;
     font-size: 6.25vh;
+    left: 0px;
+    top: 0px;
+    position: absolute;
 }
 
 #td_won {
@@ -126,7 +129,7 @@ table, th, tr, td, .scope {
     border: none;
     border-radius: 0px;
 }
-#search_player_information_button:active {
+#search_player_information_button:active, #search_player_information_button:hover {
     background-color: #4f4544;
 }
 

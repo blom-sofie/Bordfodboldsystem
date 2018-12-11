@@ -13,6 +13,8 @@ namespace Bordfodbold_System.Abstract
     {
         IEnumerable<PlayerEnt> Players { get; }
 
+        void SavePlayer(PlayerEnt player);
+
         // Metoder tilknyttet 'Players'
     }
 }

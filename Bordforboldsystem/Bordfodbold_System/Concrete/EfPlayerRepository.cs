@@ -13,6 +13,20 @@ namespace Bordfodbold_System.Concrete
         private readonly EfDbContext _context = new EfDbContext();
         public IEnumerable<PlayerEnt> Players => _context.Players;
 
+        public void SavePlayer(PlayerEnt player) {
+            if (player.id == 0) {
+                _context.Players.Add(player);
+            }
+            else {
+                PlayerEnt dbEntry = _context.Players.Find(player.id);
+                if (dbEntry != null) {
+                    dbEntry.name = player.name;
+                    dbEntry.password = player.password;
+                }
+            }
+            _context.SaveChanges();
+        }
+        
         // Metoder
     }
 }

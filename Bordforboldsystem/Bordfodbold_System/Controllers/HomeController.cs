@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Bordfodbold_System.Abstract;
+using Bordfodbold_System.Entities;
 
 namespace Bordfodbold_System.Controllers
 {
@@ -40,5 +41,21 @@ namespace Bordfodbold_System.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult NewUser(PlayerEnt player) {
+            if (ModelState.IsValid) {
+                _playerRepository.SavePlayer(player);
+                TempData["message"] = string.Format("{0} has been saved", player.name);
+               
+                return RedirectToAction("Index");
+            }
+            else {
+                return View(player);
+            }
+        }
+
+        
+
     }
 }

@@ -1,11 +1,13 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Bordfodbold_System.Entities
 {
     public class GameEnt
     {
         // Id is auto-incremented.
-        public int id { get; }
+        [Key]
+        public int id { get; set; }
 
         public int team1_id { get; set; }
         public int team2_id { get; set; }

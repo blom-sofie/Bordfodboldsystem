@@ -21,14 +21,14 @@
     <title>NewUser</title>
 </head>
 <body>
-<div>
+<div id="newPlayerForm">
     @using (Html.BeginForm()) {
         <div>
             @foreach (var property in ViewData.ModelMetadata.Properties) {
                 if (property.PropertyName != "id") {
                     <div>
                         <label>
-                            @property.PropertyName
+                            @property.PropertyName:
                         </label>
 
                         @Html.TextBox(property.PropertyName, null, new { @class = "form-control"})

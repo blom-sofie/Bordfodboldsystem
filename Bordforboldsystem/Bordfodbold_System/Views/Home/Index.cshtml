@@ -9,15 +9,6 @@
     }
 }
 
-<!-- Top right corner, used to show the username and give the user the option to log out-->
-<div class="loginInformation"id="usernameInformation">
-    @if (Session["userID"] != null)
-    {
-        @Session["userName"].ToString()
-        <a href="@Url.Action("LogOut","Login")"><span class="glyphicon glyphicon-log-out"></span></a>
-    }
-</div>
-
 <!-- Table left side of page, used to show previous games -->
 <div id="playerTable">
     <table class="table">

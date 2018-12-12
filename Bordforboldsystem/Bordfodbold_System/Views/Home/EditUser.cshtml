@@ -21,38 +21,39 @@
     <title>EditUser</title>
 </head>
 <body>
-    <table id="t">
-        <tr>
-            <td> ID </td>
-            <td> Name </td>
-            <td> Password </td>
-            <td></td>
-        </tr>
-        @foreach (var player in Model)
-        // Alternative is having a partial view!  @Html.partial("ViewModel Name", student Object)
-        {
-            if (player.id != 1 && !player.name.Equals("Admin"))
+    <div id="center">
+        <table id="t">
+            <tr id="table_header">
+                <td> Name </td>
+                <td> Password </td>
+                <td></td>
+            </tr>
+            @foreach (var player in Model)
+            // Alternative is having a partial view!  @Html.partial("ViewModel Name", student Object)
             {
-                <tr id="Player ID @player.id">
-                    <td><span value="@player.id"> @player.id </span></td>
-                    <td><input type='text' id="Name ID @player.id" value="@player.name" /></td>
-                    <td class="player_password"><input type='text' id="Password ID @player.id" value="@player.password" /></td>
-                    <td id="function_container">
-                        <span class="BtnUpdatePlayer glyphicon glyphicon-edit" onclick="Update(@player.id)">
-                        </span>
-                        <span class="BtnDeletePlayer glyphicon glyphicon-remove" onclick="Delete(@player.id)">
-                        </span>
-                    </td>
-                </tr>
-            }
+                if (player.id != 1 && !player.name.Equals("Admin"))
+                {
+                    <tr id="Player ID @player.id">
+                        <td><input type='text' id="Name ID @player.id" value="@player.name" /></td>
+                        <td class="player_password"><input type='text' id="Password ID @player.id" value="@player.password" /></td>
+                        <td id="function_container">
+                            <span class="BtnUpdatePlayer glyphicon glyphicon-edit" style="color: #a7b303;" onclick="Update(@player.id)">
+                            </span>
+                            <span class="BtnDeletePlayer glyphicon glyphicon-remove"  style="color:red" onclick="Delete(@player.id)">
+                            </span>
+                        </td>
+                    </tr>
+                }
 
-        }
-    </table>
+            }
+        </table>
+    </div>
 </body>
 <script>
     function Delete(id) {
         $.post("../Home/DeleteUser", { id }).done(function () {
             document.getElementById("Player ID " + id).remove();
+            alert("User Deleted!");
         });
     }
 
@@ -68,7 +69,7 @@
 
 
         $.post("../Home/NewUser", { player }).done(function () {
-            alert("User Updated: " + player.Name + " - " + player.Password + " - ");
+            alert("User Updated: " + player.Name + " - " + player.Password);
         });
     }
 

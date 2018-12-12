@@ -9,8 +9,13 @@
     z-index: 9999;
     color: white;
 }
+
 #navb {
-    width: 100%; height: 8.5%; top: 0px; left: 0px; background-color: #483e3d;
+    width: 100%;
+    height: 8.5%;
+    top: 0px;
+    left: 0px;
+    background-color: #483e3d;
 }
 
 #title {
@@ -21,6 +26,46 @@
     left: 0px;
     top: 0px;
     position: absolute;
+}
+
+#newPlayerForm {
+    margin: auto;
+    margin-top: 20vh;
+    height: 39vh;
+    width: 60vh;
+    border: 1px solid rgba(20,20,80,1);
+    font-size: 4vh !important;
+}
+
+#newPlayerForm a, .btn, #name ,#password{
+    width: 100%;
+    height: 6.5vh;
+    font-size: 4vh;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    border: 2px solid white;
+}
+
+#newPlayerForm #name, #password {
+    border-top: 1px solid rgba(160, 160, 160, 1);
+    border-radius: 0px;
+    border-bottom: 1px solid black;
+    background-color: rgba(240,240,240,1);
+}
+
+#newPlayerForm a {
+    background-color: #454443;
+    color: white !important;
+}
+
+.btn-primary {
+    background-color: #a7b303;
+}
+
+.btn-primary:hover {
+    background-color: #a7b303;
+    border: 2px solid white;
 }
 
 #td_won {
@@ -52,6 +97,23 @@
     position: absolute;
     color: White;
 }
+
+.glyphicon:hover {
+    cursor: pointer;
+    color: #AD310B !important;
+    -webkit-transition: color 200ms linear;
+    -ms-transition: color 200ms linear;
+    transition: color 200ms linear;
+}
+
+#title:hover {
+    color: white !important;
+    -webkit-transition: color 200ms ease-in-out;
+    -ms-transition: color 200ms ease-in-out;
+    transition: color 200ms ease-in-out;
+}
+
+
 .createNew {
     width: 27%;
     height: 15%;
@@ -64,8 +126,9 @@
 .createNew button {
     width: 100%; 
     height: 100%;
-    font-size: 4vh;
+    font-size: 2vw;
     position: relative;
+    padding: 0px !important;
     float: left;
 }
 
@@ -76,9 +139,26 @@
 
 #t {
     border: none !important;
-    position: absolute;
-    top: 10%;
-    left: 1%;
+    padding: 0px;
+    width: 580px;
+    font-size: 150%;
+    margin-left: -290px;
+}
+
+#table_header {
+    background-color: #4f4544;
+    color: white;
+}
+
+#center {
+    margin: auto;
+    width: 0%;
+    padding: 0px;
+    margin-top: 40px;
+}
+
+.body-content {
+    width: 100%;
 }
 
 #AdminButton {
@@ -86,7 +166,7 @@
 }
 
 table, th, tr, td, .scope {
-    border: 2px solid #878383;
+    border: 1px solid #878383;
     text-align: center;
 }
 
@@ -107,7 +187,7 @@ table, th, tr, td, .scope {
     font-size: 4vh;
     padding: 0px;
     margin: 0px;
-    top: 1.5%;
+    top: 15%;
     right: 1%;
 }
 

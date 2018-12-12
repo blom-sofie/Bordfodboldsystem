@@ -1,9 +1,12 @@
-﻿namespace Bordfodbold_System.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Bordfodbold_System.Entities
 {
     public class StatisticsEnt
     {
         // id is auto-incremented
-        public int id { get; }
+        [Key]
+        public int id { get; set; }
 
         public int player_id { get; set; }
         public int winCount { get; set; }

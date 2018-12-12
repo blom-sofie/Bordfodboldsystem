@@ -10,7 +10,7 @@ namespace Bordfodbold_System.Abstract
     // Bindes til EfStatisticsRepository vha. Dependency Injection.
     public interface IStatisticsRepository
     {
-        IEnumerable<StatisticsEnt> Statistics { get; }
+        IEnumerable<Statistics> Statistics { get; }
 
         // Metoder tilknyttet 'Statistics'
     }

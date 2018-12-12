@@ -1,4 +1,4 @@
-﻿@model Bordfodbold_System.Controllers.Player
+﻿@model Bordfodbold_System.Entities.Player
 @{
     Layout = null;
 }
@@ -49,17 +49,6 @@
                 </td>
                 <td>
                     @Html.EditorFor(model => model.password)
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    @Html.ValidationMessageFor(model => model.password)
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorMessage)</label>
                 </td>
             </tr>
             <tr>

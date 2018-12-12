@@ -2,7 +2,7 @@
 
 namespace Bordfodbold_System.Entities
 {
-    public class StatisticsEnt
+    public class Statistics
     {
         // id is auto-incremented
         [Key]

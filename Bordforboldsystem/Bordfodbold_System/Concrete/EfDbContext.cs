@@ -10,12 +10,12 @@ namespace Bordfodbold_System.Concrete
     public class EfDbContext : DbContext
     {
         // Get list of players from Database
-        public DbSet<PlayerEnt> Players { get; set; }
+        public DbSet<Player> Players { get; set; }
         // Get list of Teams from Database
-        public DbSet<TeamEnt> Teams { get; set; }
+        public DbSet<Team> Teams { get; set; }
         // Get list of Games from Database
-        public DbSet<GameEnt> Games { get; set; }
+        public DbSet<Game> Games { get; set; }
         // Get list of Statistics from Database
-        public DbSet<StatisticsEnt> Statistics { get; set; }
+        public DbSet<Statistics> Statistics { get; set; }
     }
 }

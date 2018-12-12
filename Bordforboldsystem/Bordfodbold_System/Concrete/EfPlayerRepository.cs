@@ -11,14 +11,14 @@ namespace Bordfodbold_System.Concrete
     {
         // Hent IEnumerable liste af Players fra EfDbContext
         private readonly EfDbContext _context = new EfDbContext();
-        public IEnumerable<PlayerEnt> Players => _context.Players;
+        public IEnumerable<Player> Players => _context.Players;
 
-        public void SavePlayer(PlayerEnt player) {
+        public void SavePlayer(Player player) {
             if (player.id == 0) {
                 _context.Players.Add(player);
             }
             else {
-                PlayerEnt dbEntry = _context.Players.Find(player.id);
+                Player dbEntry = _context.Players.Find(player.id);
                 if (dbEntry != null) {
                     dbEntry.name = player.name;
                     dbEntry.password = player.password;

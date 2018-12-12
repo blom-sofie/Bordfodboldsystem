@@ -43,7 +43,7 @@ namespace Bordfodbold_System.Controllers
         }
 
         [HttpPost]
-        public ActionResult NewUser(PlayerEnt player) {
+        public ActionResult NewUser(Entities.Player player) {
             if (ModelState.IsValid) {
                 _playerRepository.SavePlayer(player);
                 TempData["message"] = string.Format("{0} has been saved", player.name);

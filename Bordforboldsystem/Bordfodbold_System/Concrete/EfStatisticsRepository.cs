@@ -11,7 +11,7 @@ namespace Bordfodbold_System.Concrete
     {
         // Hent IEnumerable liste af Statistics fra EfDbContext
         private readonly EfDbContext _context = new EfDbContext();
-        public IEnumerable<StatisticsEnt> Statistics => _context.Statistics;
+        public IEnumerable<Statistics> Statistics => _context.Statistics;
 
         // Metoder
     }

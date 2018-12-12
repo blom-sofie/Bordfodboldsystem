@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Bordfodbold_System.Entities
 {
-    public class GameEnt
+    public class Game
     {
         // Id is auto-incremented.
         [Key]

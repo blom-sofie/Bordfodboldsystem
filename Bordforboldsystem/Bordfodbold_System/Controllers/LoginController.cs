@@ -3,12 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Bordfodbold_System.Abstract;
 using Bordfodbold_System.Controllers;
+using Bordfodbold_System.Entities;
 
 namespace Bordfodbold_System.Controllers
 {
     public class LoginController : Controller
     {
+        private readonly IPlayerRepository _playerRepository;
+
+        public LoginController(IPlayerRepository repo)
+        {
+            _playerRepository = repo;
+        }
+
         // GET: Login
         public ActionResult Login()
         {
@@ -18,18 +27,16 @@ namespace Bordfodbold_System.Controllers
         [HttpPost]
         public ActionResult Autherize(Player userModel)
         {
-            using (LoginDataBaseEntities db = new LoginDataBaseEntities())
+            var exists = _playerRepository.Players.Where(pla => pla.name == userModel.name).Where(pla => pla.password == userModel.password).ToArray()[0];
+            if (exists != null)
             {
-                var userDetails = db.Players.FirstOrDefault(x => x.name == userModel.name && x.password == userModel.password);
-                if (userDetails == null)
-                {
-                    userModel.LoginErrorMessage = "Incorrect credentials!";
-                    return View("Login", userModel);
-                }
-                Session["userID"] = userDetails.id;
-                Session["userName"] = userDetails.name;
+                Session["userID"] = exists.id;
+                Session["userName"] = exists.name;
                 return RedirectToAction("Index", "Home");
+
             }
+
+            return RedirectToAction("Login", "Login");
         }
 
         public ActionResult LogOut()

@@ -10,7 +10,7 @@ namespace Bordfodbold_System.Abstract
     // Bindes til EfGameRepository vha. Dependency Injection.
     public interface IGameRepository
     {
-        IEnumerable<GameEnt> Games { get; }
+        IEnumerable<Game> Games { get; }
 
         // Metoder tilknyttet 'Games'
 

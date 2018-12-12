@@ -14,6 +14,7 @@ namespace Bordfodbold_System.Abstract
         IEnumerable<Player> Players { get; }
 
         void SavePlayer(Player player);
+        void DeletePlayer(int id);
 
         // Metoder tilknyttet 'Players'
     }

@@ -27,15 +27,22 @@ namespace Bordfodbold_System.Controllers
         [HttpPost]
         public ActionResult Autherize(Player userModel)
         {
-            var exists = _playerRepository.Players.Where(pla => pla.name == userModel.name).Where(pla => pla.password == userModel.password).ToArray()[0];
-            if (exists != null)
+            try
             {
-                Session["userID"] = exists.id;
-                Session["userName"] = exists.name;
-                return RedirectToAction("Index", "Home");
+                var exists = _playerRepository.Players.Where(pla => pla.name == userModel.name)
+                    .Where(pla => pla.password == userModel.password).ToArray()[0];
+                if (exists != null)
+                {
+                    Session["userID"] = exists.id;
+                    Session["userName"] = exists.name;
+                    return RedirectToAction("Index", "Home");
 
+                }
             }
-
+            catch (Exception)
+            {
+                return View("Error");
+            }
             return RedirectToAction("Login", "Login");
         }
 

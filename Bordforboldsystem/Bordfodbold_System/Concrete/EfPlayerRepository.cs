@@ -26,7 +26,14 @@ namespace Bordfodbold_System.Concrete
             }
             _context.SaveChanges();
         }
-        
-        // Metoder
+
+        public void DeletePlayer(int id)
+        {
+            var player = _context.Players.Find(id);
+            if(player != null){
+                _context.Players.Remove(player);
+                _context.SaveChanges();
+            }
+        }
     }
 }

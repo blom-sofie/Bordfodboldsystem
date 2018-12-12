@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Bordfodbold_System.Entities.Player>
+@{
+    // If user isn't logged in, redirect the 'user' back to the login page.
+    if (Session["userID"] == null)
+    {
+        Response.Redirect("~/Login/Login");
+    }
+    // If the user is logged in, but the user isn't admin, redirect them back to index!
+    else if (int.Parse(Session["userID"].ToString()) != 1)
+    {
+        Response.Redirect("~/Home/Index");
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="../../fonts/style.css">
+    <title>EditUser</title>
+</head>
+<body>
+    <table id="t">
+        <tr>
+            <td> ID </td>
+            <td> Name </td>
+            <td> Password </td>
+            <td></td>
+        </tr>
+        @foreach (var player in Model)
+        // Alternative is having a partial view!  @Html.partial("ViewModel Name", student Object)
+        {
+            if (player.id != 1 && !player.name.Equals("Admin"))
+            {
+                <tr id="Player ID @player.id">
+                    <td><span value="@player.id"> @player.id </span></td>
+                    <td><input type='text' id="Name ID @player.id" value="@player.name" /></td>
+                    <td class="player_password"><input type='text' id="Password ID @player.id" value="@player.password" /></td>
+                    <td id="function_container">
+                        <span class="BtnUpdatePlayer glyphicon glyphicon-edit" onclick="Update(@player.id)">
+                        </span>
+                        <span class="BtnDeletePlayer glyphicon glyphicon-remove" onclick="Delete(@player.id)">
+                        </span>
+                    </td>
+                </tr>
+            }
+
+        }
+    </table>
+</body>
+<script>
+    function Delete(id) {
+        $.post("../Home/DeleteUser", { id }).done(function () {
+            document.getElementById("Player ID " + id).remove();
+        });
+    }
+
+    function Update(id) {
+        document.getElementById("Name ID " + id).setAttribute("value", document.getElementById("Name ID " + id).value);
+        document.getElementById("Password ID " + id).setAttribute("value", document.getElementById("Password ID " + id).value);
+
+        var player = {
+            id: id,
+            Name: document.getElementById("Name ID " + id).getAttribute("value"),
+            Password: document.getElementById("Password ID " + id).getAttribute("value")
+        };
+
+
+        $.post("../Home/NewUser", { player }).done(function () {
+            alert("User Updated: " + player.Name + " - " + player.Password + " - ");
+        });
+    }
+
+</script>
+</html>

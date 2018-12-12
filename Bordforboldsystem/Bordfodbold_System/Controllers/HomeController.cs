@@ -30,16 +30,25 @@ namespace Bordfodbold_System.Controllers
             return View();
         }
 
-        // Ændring af dette? (Blot en idé)
         public ActionResult NewGame()
         {
             return View();
         }
 
-        // Ændring af dette? (Blot en idé)
         public ActionResult NewUser()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult DeleteUser(int id)
+        {
+            bool found = _playerRepository.Players.Any(m => m.id == id);
+            if (found && id != 1)
+            {
+                _playerRepository.DeletePlayer(id);
+            }
+            return new EmptyResult();
         }
 
         [HttpPost]
@@ -55,7 +64,28 @@ namespace Bordfodbold_System.Controllers
             }
         }
 
-        
+        public ActionResult EditUser()
+        {
+            return View(_playerRepository.Players);
+        }
+
+        [HttpPost]
+        public ActionResult EditUser(Entities.Player player)
+        {
+            if (ModelState.IsValid)
+            {
+                _playerRepository.SavePlayer(player);
+                TempData["message"] = string.Format("{0} has been edited", player.name);
+
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(_playerRepository.Players);
+            }
+        }
+
+
 
     }
 }

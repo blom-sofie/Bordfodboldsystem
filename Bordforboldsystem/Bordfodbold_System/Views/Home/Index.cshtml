@@ -64,7 +64,8 @@
         {
             // Get the "New User" partial view!
             //<partial name="~/Views/Home/NewUser.cshtml" />
-            <a href="@Url.Action("NewUser","Home")"><button type="button" class="btn btn-primary">NEW USER</button></a>
+            <a href="@Url.Action("NewUser","Home")"><button type="button" id="AdminButton" class="btn btn-primary">NEW USER</button></a>
+            <a href="@Url.Action("EditUser","Home")"><button type="button" id="AdminButton" class="btn btn-primary">EDIT USER</button></a>
         }
         else
         {

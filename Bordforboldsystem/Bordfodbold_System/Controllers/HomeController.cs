@@ -24,8 +24,12 @@ namespace Bordfodbold_System.Controllers
             _gameRepository = game_repo;
             _statisticsRepository = statistics_repo;
         }
-        
-        public ActionResult Index()
+
+        public HomeController(IPlayerRepository player_repo) {
+        _playerRepository = player_repo;
+    }
+
+        public ViewResult Index()
         {
             return View();
         }

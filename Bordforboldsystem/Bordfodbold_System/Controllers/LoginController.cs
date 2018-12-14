@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Bordfodbold_System.Abstract;
-using Bordfodbold_System.Controllers;
 using Bordfodbold_System.Entities;
 
 namespace Bordfodbold_System.Controllers

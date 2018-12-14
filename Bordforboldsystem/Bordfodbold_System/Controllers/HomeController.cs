@@ -33,6 +33,7 @@ namespace Bordfodbold_System.Controllers
 
             List<dynamic> list = new List<dynamic>();
 
+            
             if (game_repo != null && game_repo.Any())
             {
                 foreach (var game in game_repo)

@@ -22,7 +22,10 @@
 </head>
 <body>
     <div id="center">
-        <table id="t">
+        <table id="t" class="editUsert">
+            <tr id="table_header_text">
+                <th id="tht">Rediger Spiller</th> 
+            </tr>
             <tr id="table_header">
                 <td> Name </td>
                 <td> Password </td>
@@ -31,7 +34,7 @@
             @foreach (var player in Model)
             // Alternative is having a partial view!  @Html.partial("ViewModel Name", student Object)
             {
-                if (player.id != 1 && !player.name.Equals("Admin"))
+                if (player.id != 1 && !player.name.Equals("Admin") && player.id != 2 && !player.name.Equals("EMPTY"))
                 {
                     <tr id="Player ID @player.id">
                         <td><input type='text' id="Name ID @player.id" value="@player.name" /></td>

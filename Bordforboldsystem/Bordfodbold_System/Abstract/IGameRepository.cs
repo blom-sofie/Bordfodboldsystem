@@ -12,6 +12,8 @@ namespace Bordfodbold_System.Abstract
     {
         IEnumerable<Game> Games { get; }
 
+        void NewGame(int team1ID, int team2ID, int teamOneGoals, int teamTwoGoals, bool didTeamOneWin, bool didTeamTwoWin, string now);
+
         // Metoder tilknyttet 'Games'
 
         // test

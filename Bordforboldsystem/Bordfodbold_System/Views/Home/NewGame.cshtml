@@ -1,5 +1,5 @@
-﻿@{
-    ViewBag.Title = "About";
+﻿@model IEnumerable<Bordfodbold_System.Entities.Player>
+@{
     // If the user isn't logged in, throw him/her out!
     if (Session["userID"] == null)
     {
@@ -18,11 +18,105 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" type="text/css" href="../../fonts/style.css">
-    <title>NewUser</title>
+    <title>NewGame</title>
 </head>
 <body>
-    <div>
-        <h1> NEW GAME PAGE, WOHOO!!!! </h1>
+    <div id="center">
+        <div id="gameBoxContent">
+            @using (Html.BeginForm())
+            {
+                <div id="newGameHeader">
+                    <p> Ny kamp </p>
+                </div>
+                <div id="leftContent">
+                    <div id="newGameMinorHeader">
+                        <p> Team 1 </p>
+                    </div>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td class="player_info">Spiller 1</td>
+                                <td class="player_info_colon">:</td>
+                                <td class="player_value">
+                                    @Html.DropDownList("DropDownListForTeamOnePlayerOne",Model.Select(item => new SelectListItem
+                                    {
+                                        Value = item.id.ToString(),
+                                        Text = item.name.ToString(),
+                                        Selected = "select" == item.id.ToString()
+                                    }))
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="player_info">Mål</td>
+                                <td class="player_info_colon">:</td>
+                                <td class="player_value">@Html.TextBox("PlayerOneTeamOneGoals", 0, new { @class = "form-control" })</td>
+                            </tr>
+                            <tr>
+                                <td class="player_info">Spiller 2</td>
+                                <td class="player_info_colon">:</td>
+                                <td class="player_value">
+                                    @Html.DropDownList("DropDownListForTeamOnePlayerTwo",Model.Select(item => new SelectListItem
+                                    {
+                                        Value = item.id.ToString(),
+                                        Text = item.name.ToString(),
+                                        Selected = "select" == item.id.ToString()
+                                    }))
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="player_info">Mål</td>
+                                <td class="player_info_colon">:</td>
+                                <td class="player_value">@Html.TextBox("PlayerTwoTeamOneGoals", 0, new { @class = "form-control" })</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="rightContent">
+                    <div id="newGameMinorHeader">
+                        <p> Team 1 </p>
+                    </div>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td class="player_info">Spiller 1</td>
+                                <td class="player_info_colon">:</td>
+                                <td class="player_value">
+                                    @Html.DropDownList("DropDownListForTeamTwoPlayerOne",Model.Select(item => new SelectListItem
+                                    {
+                                        Value = item.id.ToString(),
+                                        Text = item.name.ToString(),
+                                        Selected = "select" == item.id.ToString()
+                                    }))
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="player_info">Mål</td>
+                                <td class="player_info_colon">:</td>
+                                <td class="player_value">@Html.TextBox("PlayerOneTeamTwoGoals", 0, new { @class = "form-control" })</td>
+                            </tr>
+                            <tr>
+                                <td class="player_info">Spiller 2</td>
+                                <td class="player_info_colon">:</td>
+                                <td class="player_value">
+                                    @Html.DropDownList("DropDownListForTeamTwoPlayerTwo",Model.Select(item => new SelectListItem
+                                    {
+                                        Value = item.id.ToString(),
+                                        Text = item.name.ToString(),
+                                        Selected = "select" == item.id.ToString()
+                                    }))
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="player_info">Mål</td>
+                                <td class="player_info_colon">:</td>
+                                <td class="player_value">@Html.TextBox("PlayerTwoTeamTwoGoals", 0, new { @class = "form-control" })</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <input type="submit" value="Save" class="btn btn-primary" id="newGameSubmit" />
+            }
+        </div>
     </div>
 </body>
 </html>

@@ -31,7 +31,7 @@ namespace Bordfodbold_System.Concrete
         {
             var player = _context.Players.Find(id);
             if(player != null){
-                _context.Players.Remove(player);
+                player.deleted = true;
                 _context.SaveChanges();
             }
         }

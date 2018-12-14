@@ -21,24 +21,29 @@
     <title>NewUser</title>
 </head>
 <body>
-<div id="newPlayerForm">
-    @using (Html.BeginForm()) {
-        <div>
-            @foreach (var property in ViewData.ModelMetadata.Properties) {
-                if (property.PropertyName != "id") {
-                    <div>
-                        <label>
-                            @property.PropertyName:
-                        </label>
-
-                        @Html.TextBox(property.PropertyName, null, new { @class = "form-control"})
-                    </div>
-                }
-            }
+    <div id="newPlayerForm">
+        <div id="newPlayerHeader">
+            Ny Spiller
         </div>
-        <input type="submit" value="Save" class="btn btn-primary" />
-        @Html.ActionLink("Cancel and return", "Index", null, new { @class = "btn btn-default"})
-    }
-</div>
+        @using (Html.BeginForm())
+        {
+        <div>
+            <div>
+                <label>
+                    Name:
+                </label>
+                @Html.TextBox("name", null, new { @class = "form-control" })
+            </div>
+            <div>
+                <label>
+                    Password:
+                </label>
+                @Html.TextBox("password", null, new { @class = "form-control" })
+            </div>
+        </div>
+            <input type="submit" value="Save" class="btn btn-primary" />
+            @Html.ActionLink("Cancel and return", "Index", null, new { @class = "btn btn-default" })
+        }
+    </div>
 </body>
 </html>

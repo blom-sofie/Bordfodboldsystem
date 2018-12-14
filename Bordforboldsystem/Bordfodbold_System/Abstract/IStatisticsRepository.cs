@@ -13,5 +13,6 @@ namespace Bordfodbold_System.Abstract
         IEnumerable<Statistics> Statistics { get; }
 
         // Metoder tilknyttet 'Statistics'
+        void SaveStatistics(int player_ID, bool didPlayerWin, int player_Goals);
     }
 }

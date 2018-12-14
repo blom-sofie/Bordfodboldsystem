@@ -1,5 +1,7 @@
-﻿table {
+﻿
+table {
     font-size: 3vh;
+    min-width:20px;
 }
 
 .loginInformation {
@@ -10,12 +12,61 @@
     color: white;
 }
 
+.editUsert input{
+    border:none !important;
+    padding-left:4px;
+}
+
+.editUsert input:hover{
+    background-color:rgba(220,220,220,1);
+     -webkit-transition: all .3s ease-in-out;
+       -o-transition: all .3s ease-in-out;
+          transition: all .3s ease-in-out;
+}
+
+.editUsert{
+    margin-top: 70px !important;
+}
+
+#newGameSubmit {
+    width: 600px;
+    height: 65px;
+    margin-top: -20px;
+}
+
+#newGameHeader {
+    background-color: #483e3d;
+    color: white;
+    text-align: center;
+    font-size: 28px;
+    height: 41px;
+    margin-bottom: -1px;
+    border-bottom: 2px solid #878383;
+}
+
+#newGameMinorHeader {
+    background-color: #483e3d;
+    color: white;
+    text-align: center;
+    font-size: 28px;
+    height: 41px;
+    margin-bottom: -1px;
+}
+
+
+.leftBoxHeader{
+    background-color:black;
+    color:white;
+    font-size:24px;
+}
+
+
 #navb {
     width: 100%;
     height: 8.5%;
     top: 0px;
     left: 0px;
-    background-color: #483e3d;
+    background-color: #382e2e;
 }
 
 #title {
@@ -31,13 +82,22 @@
 #newPlayerForm {
     margin: auto;
     margin-top: 20vh;
-    height: 39vh;
+    height: 47vh;
     width: 60vh;
     border: 1px solid rgba(20,20,80,1);
     font-size: 4vh !important;
 }
 
-#newPlayerForm a, .btn, #name ,#password{
+#newPlayerHeader {
+    width: 100%;
+    color:white;
+    text-align: center !important;
+    font-size: 5vh !important;
+    height:8vh !important;
+    background-color: #4f4544 !important;
+}
+
+#newPlayerForm a, .btn, #name, #password {
     width: 100%;
     height: 6.5vh;
     font-size: 4vh;
@@ -46,12 +106,18 @@
     padding: 0;
     border: 2px solid white;
 }
+#newPlayerForm label{
+    padding-left:6px;
+    padding-top:2px;
+    margin-bottom:3px;
+}
 
 #newPlayerForm #name, #password {
     border-top: 1px solid rgba(160, 160, 160, 1);
     border-radius: 0px;
     border-bottom: 1px solid black;
     background-color: rgba(240,240,240,1);
+    padding-left: 6px;
 }
 
 #newPlayerForm a {
@@ -80,12 +146,22 @@
     font-weight: bold;
 }
 
+#td_tied {
+    background-color: darkslateblue;
+    color: lightblue;
+    font-weight: bold;
+}
+
 .tr_won {
-    background-color: #483e3d;
+    background-color: #403638;
 }
 
 .tr_lost {
-    background-color: #4f4544;
+    background-color: #403638;
+}
+
+.tr_tied {
+    background-color: #403638;
 }
 
 #playerTable {
@@ -104,13 +180,6 @@
     -webkit-transition: color 200ms linear;
     -ms-transition: color 200ms linear;
     transition: color 200ms linear;
-}
-
-#title:hover {
-    color: white !important;
-    -webkit-transition: color 200ms ease-in-out;
-    -ms-transition: color 200ms ease-in-out;
-    transition: color 200ms ease-in-out;
 }
 
 
@@ -133,8 +202,13 @@
 }
 
 #function_container {
-    width: 60px;
-    height: 20px;
+    width: 90px;
+    height: 40px;
+}
+
+#function_container span{
+    font-size:170%;
+    padding-top:6px;
 }
 
 #t {
@@ -145,7 +219,39 @@
     margin-left: -290px;
 }
 
+.editUsert {
+    width:664px !important;
+    margin-left:-332px !important;
+}
+
+.editUsert #table_header{
+    font-size:28px;
+}
+
+.editUsert input{
+    font-size:28px;
+}
+
+
 #table_header {
+    background-color: #4f4544;
+    color: white;
+}
+
+#tht{
+    width:800px;
+    height:40px;
+    border:none;
+}
+
+#table_header_text {
+    position: absolute;
+    width: 664px;
+    text-align: center;
+    font-size:28px;
+    margin-top: -40px;
+    height: 40px;
+    border: none;
     background-color: #4f4544;
     color: white;
 }
@@ -155,6 +261,69 @@
     width: 0%;
     padding: 0px;
     margin-top: 40px;
+}
+
+#gameBoxContent {
+    width: 600px;
+    margin-left: -300px;
+    height: 339px;
+    color: white;
+    background-color: #4f4544;
+}
+
+#gameBoxContent .player_info{
+    font-size:22px !important;
+}
+
+#gameBoxContent input{
+    border:none;
+    border-radius:0px;
+}
+
+#gameBoxContent td{
+    border:none;
+}
+
+#newPlayerHeader {
+    width:100%; 
+    height:40px; 
+    background-color:green;
+    font-size:24px;
+    text-align:center;
+    color:white;
+}
+
+#gameBoxContent tr input, #gameBoxContent tr select{
+    width:160px;
+    color:black;
+    font-size:20px;
+}
+
+td player_value{
+    width:1600px !important;
+}
+
+#gameBoxContent btn {
+    height: 500px !important;
+}
+
+#leftContent {
+    width: 300px;
+    float: left;
+}
+
+#rightContent {
+    width: 300px;
+    float: left;
+}
+
+#gameSubmit {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 400px !important;
+    height: 80px;
+    background-color: black;
 }
 
 .body-content {

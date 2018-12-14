@@ -13,6 +13,21 @@ namespace Bordfodbold_System.Concrete
         private readonly EfDbContext _context = new EfDbContext();
         public IEnumerable<Statistics> Statistics => _context.Statistics;
 
-        // Metoder
+
+        public void SaveStatistics(int playerId, bool didPlayerWin, int playerGoals)
+        {
+            var statistics = Statistics.FirstOrDefault(cus => cus.player_id == playerId) ?? new Statistics();
+
+            statistics.player_id = playerId;
+            statistics.goalCount += playerGoals;
+
+            if (didPlayerWin)
+                statistics.winCount++;
+            else
+                statistics.lossCount++;
+
+            _context.Statistics.Add(statistics);
+            _context.SaveChanges();
+        }
     }
 }

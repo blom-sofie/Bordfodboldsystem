@@ -12,6 +12,8 @@ namespace Bordfodbold_System.Abstract
     {
         IEnumerable<Team> Teams { get; }
 
+        void NewTeam(int player1_ID, int player2_ID);
+
         // Metoder tilknyttet 'Teams'
     }
 }

@@ -11,11 +11,12 @@ namespace Bordfodbold_System.Entities
 
         public int team1_id { get; set; }
         public int team2_id { get; set; }
-        public int winner_team_id { get; set; }
         public int team1goals { get; set; }
         public int team2goals { get; set; }
+        public bool didTeamOneWin { get; set; }
+        public bool didTeamTwoWin { get; set; }
 
         // Mangles i databasen!
-        public DateTime date { get; set; }
+        public string date { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿@using Bordfodbold_System.Controllers
 @using Bordfodbold_System.Entities
+@model dynamic
 @{
     ViewBag.Title = "Home Page";
     if (Session["userID"] == null)
@@ -9,8 +10,9 @@
     }
 }
 
+
 <!-- Table left side of page, used to show previous games -->
-<div id="playerTable">
+<div id="playerTable" style="overflow-y: scroll; height:87.5vh;">
     <table class="table">
         <thead class="thead-dark">
             <tr>
@@ -23,28 +25,86 @@
                 <th scope="col" class="scope">Dato</th>
             </tr>
         </thead>
-        <tbody>
-        <tr class="tr_won">
-            <td id="td_won">WON</td>
-            <td>1</td>
-            <td>2</td>
-            <td>10</td>
-            <td>Hans Kristian</td>
-            <td>Jonas Lemming</td>
-            <td>10-12-2018</td>
-        </tr>
-        <tr class="tr_lost">
-            <td id="td_lost">LOST</td>
-            <td>2</td>
-            <td>1</td>
-            <td>7</td>
-            <td>Mathilde Arak</td>
-            <td>Hans Plovbjerg</td>
-            <td>10-12-2018</td>
-        </tr>
+        <tbody style="overflow-y:auto; max-height:800px !important;">
+            @foreach (var game in Model)
+            {
+                if (game.team1goals > game.team2goals && game.team1goals != game.team2goals)
+                {
+                    <tr class="tr_won">
+                        <td id="td_won">WON</td>
+                        <td>@game.team1_id</td>
+                        <td>@game.team1goals</td>
+                        <td>@game.team2_id</td>
+                        <td>@game.player_one_name</td>
+                        <td>@game.player_two_name</td>
+                        <td>@game.date</td>
+                    </tr>
+                }
+                else if (game.team1goals < game.team2goals && game.team1goals != game.team2goals)
+                {
+                    <tr class="tr_lost">
+                        <td id="td_lost">LOST</td>
+                        <td>@game.team1_id</td>
+                        <td>@game.team1goals</td>
+                        <td>@game.team2_id</td>
+                        <td>@game.player_one_name</td>
+                        <td>@game.player_two_name</td>
+                        <td>@game.date</td>
+                    </tr>
+                }
+
+
+                if (game.team2goals > game.team1goals && game.team1goals != game.team2goals)
+                {
+                    <tr class="tr_won">
+                        <td id="td_won">WON</td>
+                        <td>@game.team2_id</td>
+                        <td>@game.team2goals</td>
+                        <td>@game.team1_id</td>
+                        <td>@game.player_thr_name</td>
+                        <td>@game.player_fou_name</td>
+                        <td>@game.date</td>
+                    </tr>
+                }
+                else if (game.team2goals < game.team1goals && game.team1goals != game.team2goals)
+                {
+                    <tr class="tr_lost">
+                        <td id="td_lost">LOST</td>
+                        <td>@game.team2_id</td>
+                        <td>@game.team2goals</td>
+                        <td>@game.team1_id</td>
+                        <td>@game.player_thr_name</td>
+                        <td>@game.player_fou_name</td>
+                        <td>@game.date</td>
+                    </tr>
+                }
+
+                if (game.team1goals == game.team2goals)
+                {
+                    <tr class="tr_tied">
+                        <td id="td_tied">TIED</td>
+                        <td>@game.team1_id</td>
+                        <td>@game.team1goals</td>
+                        <td>@game.team2_id</td>
+                        <td>@game.player_one_name</td>
+                        <td>@game.player_two_name</td>
+                        <td>@game.date</td>
+                    </tr>
+                    <tr class="tr_tied">
+                        <td id="td_tied">TIED</td>
+                        <td>@game.team2_id</td>
+                        <td>@game.team2goals</td>
+                        <td>@game.team1_id</td>
+                        <td>@game.player_thr_name</td>
+                        <td>@game.player_fou_name</td>
+                        <td>@game.date</td>
+                    </tr>
+                }
+            }
         </tbody>
     </table>
 </div>
+
 
 <div class="createNew">
     @if (Session["userID"] != null)
@@ -69,21 +129,21 @@
 
 <!-- Table bottom right for searching a specific player's info-->
 <div class="searchTabel">
-    @using (Html.BeginForm("Index", "Home", FormMethod.Get, new {@class = "Index"}))
+    @using (Html.BeginForm("Index", "Home", FormMethod.Get, new { @class = "Index" }))
     {
-    <tr>
-        <th>
-            @Html.TextBox("search_player_information")
-        </th>
-        <th>
-            <button type="submit" class="btn btn-primary" id="search_player_information_button">
-                <span class="glyphicon glyphicon-search"></span>
-            </button>
-        </th>
-    </tr>
+        <tr>
+            <th>
+                @Html.TextBox("search_player_information")
+            </th>
+            <th>
+                <button type="submit" class="btn btn-primary" id="search_player_information_button">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </th>
+        </tr>
 
     }
-    
+
     <div id="playerInfoTable">
         <table class="table">
             <tbody>
@@ -114,7 +174,6 @@
                 </tr>
                 <tr>
                     <td class="player_info">Kampe</td>
-
                     <td class="player_info_colon">:</td>
                     <td class="player_value"></td>
                 </tr>

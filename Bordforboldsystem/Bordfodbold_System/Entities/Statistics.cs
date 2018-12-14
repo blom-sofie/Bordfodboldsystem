@@ -11,5 +11,6 @@ namespace Bordfodbold_System.Entities
         public int player_id { get; set; }
         public int winCount { get; set; }
         public int goalCount { get; set; }
+        public int lossCount { get; set; }
     }
 }

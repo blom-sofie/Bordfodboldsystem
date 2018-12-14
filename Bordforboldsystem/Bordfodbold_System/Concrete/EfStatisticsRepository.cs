@@ -17,6 +17,7 @@ namespace Bordfodbold_System.Concrete
         public void SaveStatistics(int playerId, bool didPlayerWin, int playerGoals)
         {
             var statistics = Statistics.FirstOrDefault(cus => cus.player_id == playerId) ?? new Statistics();
+            var a1 = statistics.goalCount;
 
             statistics.player_id = playerId;
             statistics.goalCount += playerGoals;
@@ -26,7 +27,10 @@ namespace Bordfodbold_System.Concrete
             else
                 statistics.lossCount++;
 
-            _context.Statistics.Add(statistics);
+            if(statistics.id == 0)
+            {
+                _context.Statistics.Add(statistics);
+            }
             _context.SaveChanges();
         }
     }

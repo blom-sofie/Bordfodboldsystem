@@ -26,7 +26,7 @@
             </tr>
         </thead>
         <tbody style="overflow-y:auto; max-height:800px !important;">
-            @foreach (var game in Model)
+            @foreach (var game in Model.Players)
             {
                 if (game.team1goals > game.team2goals && game.team1goals != game.team2goals)
                 {
@@ -147,41 +147,48 @@
     <div id="playerInfoTable">
         <table class="table">
             <tbody>
-                <tr>
-                    <td class="player_info">Placering</td>
-                    <td class="player_info_colon">:</td>
-                    <td class="player_value"></td>
-                </tr>
-                <tr>
-                    <td class="player_info">Vundet</td>
-                    <td class="player_info_colon">:</td>
-                    <td class="player_value"></td>
-                </tr>
-                <tr>
-                    <td class="player_info">Tabt</td>
-                    <td class="player_info_colon">:</td>
-                    <td class="player_value"></td>
-                </tr>
-                <tr>
-                    <td class="player_info">Sejrs ratio</td>
-                    <td class="player_info_colon">:</td>
-                    <td class="player_value"></td>
-                </tr>
-                <tr>
-                    <td class="player_info">Mål</td>
-                    <td class="player_info_colon">:</td>
-                    <td class="player_value"></td>
-                </tr>
-                <tr>
-                    <td class="player_info">Kampe</td>
-                    <td class="player_info_colon">:</td>
-                    <td class="player_value"></td>
-                </tr>
-                <tr>
-                    <td class="player_info">Mål / kamp</td>
-                    <td class="player_info_colon">:</td>
-                    <td class="player_value"></td>
-                </tr>
+                @foreach (var a in Model.Search)
+                {
+                    <tr>
+                        <td class="player_info">Vundet</td>
+                        <td class="player_info_colon">:</td>
+                        <td class="player_value">@a.winCount</td>
+                    </tr>
+                    <tr>
+                        <td class="player_info">Tabt</td>
+                        <td class="player_info_colon">:</td>
+                        <td class="player_value">@a.lossCount</td>
+                    </tr>
+                    <tr>
+                        <td class="player_info">Sejrs ratio</td>
+                        <td class="player_info_colon">:</td>
+                        @if(a.lossCount > 0 && a.winCount == 0){
+                        <td class="player_value">0</td>
+                        } else if(a.lossCount == 0 && a.winCount > 0) {
+                        <td class="player_value">@(a.winCount)</td>
+                        } else
+                        {
+                        <td class="player_value">@((a.winCount*1.0/a.lossCount*1.0).ToString("0.##"))</td>
+                        }
+
+                    </tr>
+                    <tr>
+                        <td class="player_info">Mål</td>
+                        <td class="player_info_colon">:</td>
+                        <td class="player_value">@a.goalCount</td>
+                    </tr>
+                    <tr>
+                        <td class="player_info">Kampe</td>
+                        <td class="player_info_colon">:</td>
+                        <td class="player_value">@(a.lossCount+a.winCount)</td>
+                    </tr>
+                    <tr>
+                        <td class="player_info">Mål / kamp</td>
+                        <td class="player_info_colon">:</td>
+                        <td class="player_value">@((a.goalCount * 1.0 / a.winCount * 1.0).ToString("0.##"))</td>
+                    </tr>
+
+                }
             </tbody>
         </table>
     </div>

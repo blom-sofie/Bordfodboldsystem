@@ -18,7 +18,7 @@ namespace Bordfodbold_System.Concrete
             var team = Teams.FirstOrDefault(cus => cus.player1_id == player1ID && cus.player2_id == player2ID) ?? new Team();
             team.player1_id = player1ID;
             team.player2_id = player2ID;
-            
+
             _context.Teams.Add(team);
             _context.SaveChanges();
         }

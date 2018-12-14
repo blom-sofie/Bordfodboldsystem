@@ -16,6 +16,11 @@ namespace Bordfodbold_System.Controllers
         private readonly IGameRepository _gameRepository;
         private readonly IStatisticsRepository _statisticsRepository;
 
+        public HomeController(IPlayerRepository playerRepo)
+        {
+            _playerRepository = playerRepo;
+        }
+
         public HomeController(IPlayerRepository playerRepo, ITeamRepository teamRepo, IGameRepository gameRepo, IStatisticsRepository statisticsRepo)
         {
             _playerRepository = playerRepo;
@@ -24,7 +29,7 @@ namespace Bordfodbold_System.Controllers
             _statisticsRepository = statisticsRepo;
         }
 
-        public ActionResult Index()
+        public ActionResult Index(string search_player_information)
         {
             List<Player> player_repo = _playerRepository.Players.ToList();
             List<Team> team_repo = _teamRepository.Teams.ToList();
@@ -32,8 +37,9 @@ namespace Bordfodbold_System.Controllers
             List<Statistics> statistics_repo = _statisticsRepository.Statistics.ToList();
 
             List<dynamic> list = new List<dynamic>();
+            List<dynamic> searched = new List<dynamic>();
+            dynamic lists = new ExpandoObject();
 
-            
             if (game_repo != null && game_repo.Any())
             {
                 foreach (var game in game_repo)
@@ -51,7 +57,25 @@ namespace Bordfodbold_System.Controllers
                     list.Add(to);
                 }
             }
-            return View(list);
+
+            if (search_player_information != null)
+            {
+                dynamic to = new ExpandoObject();
+                try
+                {
+                    int player_ID = _playerRepository.Players.FirstOrDefault(x => x.name.ToUpper() == search_player_information.ToUpper()).id;
+                    Statistics a = _statisticsRepository.Statistics.FirstOrDefault(x => x.player_id == player_ID);
+                    searched.Add(a);
+                } catch (Exception)
+                {
+                    //
+                }
+            }
+
+            
+            lists.Players = list;
+            lists.Search = searched;
+            return View(lists);
         }
 
         public ViewResult NewGame()
@@ -113,8 +137,8 @@ namespace Bordfodbold_System.Controllers
             _teamRepository.NewTeam(int.Parse(DropDownListForTeamOnePlayerOne), int.Parse(DropDownListForTeamOnePlayerTwo));
             _teamRepository.NewTeam(int.Parse(DropDownListForTeamTwoPlayerOne), int.Parse(DropDownListForTeamTwoPlayerTwo));
 
-            int Team1ID = _teamRepository.Teams.OrderByDescending(item => item.id).First().id;
-            int Team2ID = _teamRepository.Teams.OrderByDescending(item => item.id).Skip(1).First().id;
+            int Team2ID = _teamRepository.Teams.OrderByDescending(item => item.id).First().id;
+            int Team1ID = _teamRepository.Teams.OrderByDescending(item => item.id).Skip(1).First().id;
 
             _gameRepository.NewGame
             (

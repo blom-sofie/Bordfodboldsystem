@@ -26,7 +26,7 @@ namespace Bordfodbold_System.Controllers
         {
             try
             {
-                var exists = _playerRepository.Players.Where(pla => pla.name == userModel.name)
+                var exists = _playerRepository.Players.Where(pla => pla.name.ToUpper() == userModel.name.ToUpper())
                     .Where(pla => pla.password == userModel.password).ToArray()[0];
                 if (exists != null)
                 {

@@ -133,7 +133,7 @@
     {
         <tr>
             <th>
-                @Html.TextBox("search_player_information")
+                @Html.TextBox("search_player_information", "", new { placeholder = "Søg spiller..." })
             </th>
             <th>
                 <button type="submit" class="btn btn-primary" id="search_player_information_button">
@@ -185,7 +185,7 @@
                     <tr>
                         <td class="player_info">Mål / kamp</td>
                         <td class="player_info_colon">:</td>
-                        <td class="player_value">@((a.goalCount * 1.0 / a.winCount * 1.0).ToString("0.##"))</td>
+                        <td class="player_value">@((a.goalCount * 1.0 / (a.winCount+a.lossCount) * 1.0).ToString("0.##"))</td>
                     </tr>
 
                 }

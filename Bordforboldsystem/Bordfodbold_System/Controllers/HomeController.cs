@@ -65,10 +65,17 @@ namespace Bordfodbold_System.Controllers
                 {
                     int player_ID = _playerRepository.Players.FirstOrDefault(x => x.name.ToUpper() == search_player_information.ToUpper()).id;
                     Statistics a = _statisticsRepository.Statistics.FirstOrDefault(x => x.player_id == player_ID);
-                    searched.Add(a);
+                    if(a != null)
+                    {
+                        searched.Add(a);
+                    } else
+                    {
+                        a = new Statistics() { winCount = 0, goalCount = 0, lossCount = 0, id = 0, player_id = player_ID };
+                        searched.Add(a);
+                    }
                 } catch (Exception)
                 {
-                    //
+                   // 
                 }
             }
 

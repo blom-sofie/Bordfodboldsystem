@@ -17,9 +17,9 @@
         <thead class="thead-dark">
             <tr>
                 <th scope="col" class="scope">Status</th>
-                <th scope="col" class="scope">ID</th>
+                <!-- <th scope="col" class="scope">ID</th> -->
                 <th scope="col" class="scope">Mål</th>
-                <th scope="col" class="scope">M-ID</th>
+                <!-- <th scope="col" class="scope">M-ID</th> -->
                 <th scope="col" class="scope">Spiller 1</th>
                 <th scope="col" class="scope">Spiller 2</th>
                 <th scope="col" class="scope">Dato</th>
@@ -32,9 +32,9 @@
                 {
                     <tr class="tr_won">
                         <td id="td_won">WON</td>
-                        <td>@game.team1_id</td>
+                        <!-- <td>game.team1_id</td> -->
                         <td>@game.team1goals</td>
-                        <td>@game.team2_id</td>
+                        <!-- <td>game.team2_id</td> -->
                         <td>@game.player_one_name</td>
                         <td>@game.player_two_name</td>
                         <td>@game.date</td>
@@ -44,9 +44,9 @@
                 {
                     <tr class="tr_lost">
                         <td id="td_lost">LOST</td>
-                        <td>@game.team1_id</td>
+                        <!-- <td>game.team1_id</td> -->
                         <td>@game.team1goals</td>
-                        <td>@game.team2_id</td>
+                        <!-- <td>game.team2_id</td> -->
                         <td>@game.player_one_name</td>
                         <td>@game.player_two_name</td>
                         <td>@game.date</td>
@@ -58,9 +58,9 @@
                 {
                     <tr class="tr_won">
                         <td id="td_won">WON</td>
-                        <td>@game.team2_id</td>
+                        <!-- <td>game.team2_id</td> -->
                         <td>@game.team2goals</td>
-                        <td>@game.team1_id</td>
+                        <!-- <td>game.team1_id</td> -->
                         <td>@game.player_thr_name</td>
                         <td>@game.player_fou_name</td>
                         <td>@game.date</td>
@@ -70,9 +70,9 @@
                 {
                     <tr class="tr_lost">
                         <td id="td_lost">LOST</td>
-                        <td>@game.team2_id</td>
+                        <!-- <td>game.team2_id</td> -->
                         <td>@game.team2goals</td>
-                        <td>@game.team1_id</td>
+                        <!-- <td>game.team1_id</td> -->
                         <td>@game.player_thr_name</td>
                         <td>@game.player_fou_name</td>
                         <td>@game.date</td>
@@ -83,18 +83,18 @@
                 {
                     <tr class="tr_tied">
                         <td id="td_tied">TIED</td>
-                        <td>@game.team1_id</td>
+                        <!-- <td>game.team1_id</td> -->
                         <td>@game.team1goals</td>
-                        <td>@game.team2_id</td>
+                        <!-- <td>game.team2_id</td> -->
                         <td>@game.player_one_name</td>
                         <td>@game.player_two_name</td>
                         <td>@game.date</td>
                     </tr>
                     <tr class="tr_tied">
                         <td id="td_tied">TIED</td>
-                        <td>@game.team2_id</td>
+                        <!-- <td>game.team2_id</td> -->
                         <td>@game.team2goals</td>
-                        <td>@game.team1_id</td>
+                        <!-- <td>game.team1_id</td> -->
                         <td>@game.player_thr_name</td>
                         <td>@game.player_fou_name</td>
                         <td>@game.date</td>
@@ -162,13 +162,17 @@
                     <tr>
                         <td class="player_info">Sejrs ratio</td>
                         <td class="player_info_colon">:</td>
-                        @if(a.lossCount > 0 && a.winCount == 0){
-                        <td class="player_value">0</td>
-                        } else if(a.lossCount == 0 && a.winCount > 0) {
-                        <td class="player_value">@(a.winCount)</td>
-                        } else
+                        @if (a.lossCount > 0 && a.winCount == 0)
                         {
-                        <td class="player_value">@((a.winCount*1.0/a.lossCount*1.0).ToString("0.##"))</td>
+                            <td class="player_value">0</td>
+                        }
+                        else if (a.lossCount == 0 && a.winCount > 0)
+                        {
+                            <td class="player_value">@(a.winCount)</td>
+                        }
+                        else
+                        {
+                            <td class="player_value">@((a.winCount * 1.0 / a.lossCount * 1.0).ToString("0.##"))</td>
                         }
 
                     </tr>
@@ -180,12 +184,12 @@
                     <tr>
                         <td class="player_info">Kampe</td>
                         <td class="player_info_colon">:</td>
-                        <td class="player_value">@(a.lossCount+a.winCount)</td>
+                        <td class="player_value">@(a.lossCount + a.winCount)</td>
                     </tr>
                     <tr>
                         <td class="player_info">Mål / kamp</td>
                         <td class="player_info_colon">:</td>
-                        <td class="player_value">@((a.goalCount * 1.0 / (a.winCount+a.lossCount) * 1.0).ToString("0.##"))</td>
+                        <td class="player_value">@((a.goalCount * 1.0 / (a.winCount + a.lossCount) * 1.0).ToString("0.##"))</td>
                     </tr>
 
                 }
